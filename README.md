@@ -16,9 +16,8 @@ If it is necessary to change lockcd config please create `lockc.toml` or copy it
 
 Add changes to `lockc.toml` and create configMap in lockc namespace
 ```console
-$ wget https://raw.githubusercontent.com/rancher-sandbox/lockc/main/contrib/etc/lockc/lockc.toml
 $ kubectl create configmap -n lockc lockc --from-file=./lockc.toml
-$ helm upgrade -n lockc lockc/lockc --set lockcd.config.enabled=true
+$ helm upgrade lockc lockc/lockc --namespace lockc --set lockcd.config.enabled=true
 ```
 
 This will install lockc on the Kubernetes cluster in the default configuration.
